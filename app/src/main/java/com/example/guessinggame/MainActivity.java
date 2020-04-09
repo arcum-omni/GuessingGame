@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 score--;
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Nope, that was wrong.", Toast.LENGTH_LONG).show();
             }
         }
         else{
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 score--;
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Nope, that was wrong", Toast.LENGTH_LONG).show();
             }
         }
         scoreView.setText("Score: " + score);
