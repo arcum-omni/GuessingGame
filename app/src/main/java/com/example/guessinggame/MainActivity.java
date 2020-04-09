@@ -11,10 +11,10 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Button leftButton;
-    private Button rightButton;
+    private Button leftBtn;
+    private Button rightBtn;
     private TextView scoreView;
-    private Random rando;
+    private Random rand;
     private int leftNumber;
     private int rightNumber;
     private int score;
@@ -24,18 +24,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        leftButton = findViewById(R.id.leftButton);
-        rightButton = findViewById(R.id.rightButton);
+        leftBtn = findViewById(R.id.leftButton);
+        rightBtn = findViewById(R.id.rightButton);
         scoreView = findViewById((R.id.scoreView));
 
         score = 0;
 
-        rando = new Random();
+        rand = new Random();
         chooseNumbers();
     }
 
     public void onClick(View v){
-        if(v == leftButton){
+        if(v == leftBtn){
             if(leftNumber > rightNumber){
                 score++;
                 Toast.makeText(this, "Correct", Toast.LENGTH_LONG).show();
@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void chooseNumbers(){
-        leftNumber = rando.nextInt(10);
-        rightNumber = rando.nextInt(10);
+        leftNumber = rand.nextInt(10);
+        rightNumber = rand.nextInt(10);
         while(leftNumber == rightNumber){
-            rightNumber = rando.nextInt(10);
+            rightNumber = rand.nextInt(10);
         }
 
-        leftButton.setText("" + leftNumber);
-        rightButton.setText("" + rightNumber);
+        leftBtn.setText("" + leftNumber);
+        rightBtn.setText("" + rightNumber);
     }
 }
