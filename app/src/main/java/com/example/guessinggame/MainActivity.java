@@ -84,16 +84,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMessages(boolean b){
+        int congratStreak = 10; // The number of correct guesses in a row to get congratulated
+
         if(b == true){
-            if(streak >= 10){
-                Toast.makeText(this, "Great Job, you've guessed " + streak + " correct in a row!", Toast.LENGTH_LONG).show();
+            if(streak >= 2 * congratStreak){
+                Toast.makeText(this, "Wow, you are really on a roll.  You've guessed correct " + streak + " times in a row!", Toast.LENGTH_LONG).show();
+            }
+            else if(streak == congratStreak){
+                Toast.makeText(this, "Great Job, you've guessed correct " + streak + " times in a row!", Toast.LENGTH_LONG).show();
             }
             else{
                 Toast.makeText(this, "Great job, keep it up!", Toast.LENGTH_LONG).show();
             }
         }
         else{
-            Toast.makeText(this, "I'm sorry that was wrong, try again.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Wrong, try again.", Toast.LENGTH_LONG).show();
         }
     }
 }
